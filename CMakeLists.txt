@@ -9,25 +9,33 @@ message(VERBOSE "Project description: ${CMAKE_PROJECT_DESCRIPTION}")
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt5Core)
 find_package(Threads)
 find_package(benchmark REQUIRED)
 
-set(SIMPLE_CASES_PROJECT SimpleCases)
 
-add_executable(${SIMPLE_CASES_PROJECT}
+## simple cases exe
+set(SIMPLE_CASES_PRJ_NAME SimpleCases)
+add_executable(${SIMPLE_CASES_PRJ_NAME}
     SimpleCases.cpp
 )
-
-target_link_libraries(${SIMPLE_CASES_PROJECT}
+target_link_libraries(${SIMPLE_CASES_PRJ_NAME}
     Qt5::Core
     Threads::Threads
     benchmark::benchmark
 )
+
+### writer/reader exe
+set(WRITER_READER_PRJ_NAME Writer)
+add_executable(${WRITER_READER_PRJ_NAME}
+    WriterReader.cpp
+)
+target_link_libraries(${WRITER_READER_PRJ_NAME}
+    Qt5::Core
+    Threads::Threads
+    benchmark::benchmark
+)
+
+
