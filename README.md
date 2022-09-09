@@ -30,3 +30,4 @@ asyncItAsync        614557 ns       608337 ns         1134
 to build and run application:
 - C++ compiler (std >= c++14)
 - google benchmark v1.7.0
+- Threads library (a lot of platform has default thread library)
